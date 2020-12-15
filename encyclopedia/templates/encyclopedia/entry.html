@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   {{title}}
+{% endblock %}
+
+{% block body %}
+  <p style= "color: green">{{message}}</p>
+
+  <div class="">
+    {{entry|safe}}
+    {{content|safe}}
+  </div>
+  <form class="" action="{% url 'editEntryForm' title %}" method="post">
+    <button>Edit</button>
+    {% csrf_token %}
+  </form>
+{% endblock %}

@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  background-color: white;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+code {
+    white-space: pre;
+}
+.img-logo {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+p {
+  padding-bottom: 8px;
+}
+h1 {
+    margin-top: 0px;
+    border-bottom: 1px solid #a2a9b1;
+    font: 28.8px "Linux Libertine", Georgia, Times;
+    margin: 0 0 7.2px;
+}
+h4{
+  color: red;
+  padding: 10px;
+}
+.ul-columns {
+  width: 30em;
+}
+.li-main {
+  float:right;
+  width: 8em;
+}
+li {
+  margin-top: 10px;
+  list-style: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+li a {
+  color: black;
+}
+li a:hover{
+  color: blue;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:flex-start;
+
+}
+input[type="text"] {
+  width: 70%;
+}
+button{
+  margin: 15px;
+  color: white;
+  background: #306eff;
+  outline: none;
+  border-color: #306eff;
+  border-width: 1px;
+  border-style:outset;
+}
+textarea {
+    height: 50vh;
+    width: 70%;
+}
+
+.main {
+    padding:10px;
+    height: 70vh;
+}
+
+.search {
+    width: 30%;
+    font-size: 15px;
+    line-height: 15px;
+    float: right;
+    margin: 50px 20px 0 0;
+}
+.search-img {
+    float: right;
+    margin: 50px 25px 0 0;
+    text-align: center;
+
+  }
+
+.sidebar {
+    flex:1;
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+
+}
+.sidebarcontent{
+  text-align: center;
+  margin-top: 40px;
+  line-height: 300%;
+  font-weight: 700;
+}
+.sidebar h2 {
+    margin-top: 5px;
+}
+.col2{
+  display: flex;
+  flex-direction: column;
+  flex:5;
+
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid lightblue;
+
+
+}
+.content > section {
+  flex:4;
+  min-height: 100vh;
+
+}
+
+header {
+  background: white;
+  height: 15vh;
+  border-bottom: 1px solid lightblue;
+  width: 70%;
+  top: 0;
+  position:fixed;
+}

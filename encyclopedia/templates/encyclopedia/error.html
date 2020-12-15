@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Error
+{% endblock %}
+
+{% block body %}
+
+<div class="">
+  <h1>{{message}}</h1>
+  <h4>{{title}} Dosn't Exist</h4>
+  <p>   Sorry. the page you're looking for has moved or no longer exists.</p>
+  <br>
+  <p>   Please try the <a href="{% url 'index' %}">Home Page</a>
+    or the Search bar for further help</p>
+    <br>
+    <div style="width: 70%">
+      <form action="{% url 'searchpage' %}" method="Post">
+          <!--<input class="search" type="text" name="q" placeholder="Search Encyclopedia">-->
+          {% csrf_token %}
+          {{ form }}
+          <div>
+            <button type="submit" name="button">Search</button>
+          </div>
+      </form>
+    </div>
+
+</div>
+
+
+{% endblock %}

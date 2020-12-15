@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+          <div class="sidebar">
+              <img class="img-logo" src="{% static 'encyclopedia/images/wiki.png'%}" alt="wiki">
+              <div class="sidebarcontent">
+                <div>
+                    <a href="{% url 'index' %}">Home</a>
+                </div>
+                <div>
+                    <a href="{% url 'create_new' %}">Create New Page</a>
+                </div>
+                <div>
+                    <a class=""  href = "{% url 'randompage' %}">Random Page</a>
+                </div>
+              </div>
+
+                {% block nav %}
+                {% endblock %}
+            </div>
+            <div class="col2">
+              <header>
+                <div class="search-img">
+                  <img src="{% static 'encyclopedia/images/search.png'%}" alt="wiki">
+                </div>
+                <div class="search">
+                  <form action="{% url 'searchpage' %}" method="Post">
+                      <!--<input class="search" type="text" name="q" placeholder="Search Encyclopedia">-->
+                      {% csrf_token %}
+                      {{ form }}
+                      
+                  </form>
+                </div>
+              </header>
+              <section class="main content">
+                  {% block body %}
+                  {% endblock %}
+              </section>
+            </div>
+        </div>
+
+    </body>
+</html>
