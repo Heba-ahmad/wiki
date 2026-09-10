@@ -153,3 +153,11 @@ def editPage(request, title):
             "form": Search(),
             "message": message0
             })
+# Delete entry
+def delete_entry(request, title):
+    filename = f"entries/{title}.md"
+    if default_storage.exists(filename):
+        default_storage.delete(filename)
+    return HttpResponseRedirect(reverse("index"))
+
+

@@ -1,3 +1,4 @@
+
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
@@ -5,11 +6,20 @@
 {% endblock %}
 
 {% block body %}
+
 <h1>Edit Entry:</h1>
+
 <form class="" action="{% url 'editPage' title %}" method="post">
   {% csrf_token %}
   {{editform}}
   <br>
   <button type="submit" name="button">Submit</button>
 </form>
+<div class="delete-form">
+<form class="" action="{% url 'delete_entry' title%}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="button" onclick="return confirm('Are you sure you want to delete this page')">Delete</button>
+</form>
+</div>
+
 {% endblock %}
