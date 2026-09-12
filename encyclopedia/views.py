@@ -28,7 +28,7 @@ class Edit_form(forms.Form):
 def index(request):
     entries= util.list_entries()
     return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries(),
+        "entries": entries,
         "form": Search()
     })
 
@@ -48,7 +48,9 @@ def entry(request, title):
         "message": "Page not Found (404)",
         "form": Search(),
         "title": title
-        })
+        },
+        status=404
+        )
 
 
 # Returns random entry page
@@ -65,9 +67,7 @@ def search(request):
             query = form.cleaned_data["query"]
             for entry in allentries:
                 if query.lower() == entry.lower():
-                    title = entry
-                    entry = util.get_entry(title)
-                    return HttpResponseRedirect(reverse("entry", args=[title]))
+                    return HttpResponseRedirect(reverse("entry", args=[entry]))
                 if query.lower() in entry.lower():
                     foundPages.append(entry)
             return render(request, "encyclopedia/searchpage.html", {
